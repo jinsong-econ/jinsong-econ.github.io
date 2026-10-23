@@ -1,273 +1,257 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
-</head>
-<body>
-<p class="p1">\documentclass[</p>
-<p class="p1"><span class="Apple-converted-space">  </span>UTF8,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>a4paper,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>11pt,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>fontset=fandol</p>
-<p class="p1">]{ctexart}</p>
-<p class="p2"><br></p>
-<p class="p1">% ==================================================</p>
-<p class="p1">% 页面与宏包设置</p>
-<p class="p1">% ==================================================</p>
-<p class="p1">\usepackage[</p>
-<p class="p1"><span class="Apple-converted-space">  </span>left=2.2cm,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>right=2.2cm,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>top=1.8cm,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>bottom=1.8cm</p>
-<p class="p1">]{geometry}</p>
-<p class="p2"><br></p>
-<p class="p1">\usepackage{array}</p>
-<p class="p1">\usepackage{tabularx}</p>
-<p class="p1">\usepackage{enumitem}</p>
-<p class="p1">\usepackage{setspace}</p>
-<p class="p1">\usepackage{needspace}</p>
-<p class="p1">\usepackage{fancyhdr}</p>
-<p class="p1">\usepackage{hyperref}</p>
-<p class="p2"><br></p>
-<p class="p1">\hypersetup{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>hidelinks,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>pdftitle={宋瑾 - 学术简历 (北京交通大学)},</p>
-<p class="p1"><span class="Apple-converted-space">  </span>pdfauthor={宋瑾}</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">\setstretch{1.15}</p>
-<p class="p1">\setlength{\parindent}{0pt}</p>
-<p class="p1">\setlength{\parskip}{0pt}</p>
-<p class="p1">\setlength{\emergencystretch}{2em}</p>
-<p class="p2"><br></p>
-<p class="p1">% ==================================================</p>
-<p class="p1">% 页眉页脚</p>
-<p class="p1">% ==================================================</p>
-<p class="p1">\pagestyle{fancy}</p>
-<p class="p1">\fancyhf{}</p>
-<p class="p1">\fancyfoot[C]{\small\thepage}</p>
-<p class="p1">\renewcommand{\headrulewidth}{0pt}</p>
-<p class="p1">\renewcommand{\footrulewidth}{0pt}</p>
-<p class="p1">\setlength{\footskip}{22pt}</p>
-<p class="p2"><br></p>
-<p class="p1">% ==================================================</p>
-<p class="p1">% 列表格式定义</p>
-<p class="p1">% ==================================================</p>
-<p class="p1">\setlist[itemize]{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>leftmargin=1.4em,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>itemsep=0.3em,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>topsep=0.2em,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>parsep=0pt,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>partopsep=0pt</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">% 论文列表：采用悬挂缩进</p>
-<p class="p1">\newlist{publications}{itemize}{1}</p>
-<p class="p1">\setlist[publications]{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>label={},</p>
-<p class="p1"><span class="Apple-converted-space">  </span>leftmargin=1.5em,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>itemindent=-1.5em,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>itemsep=0.65em,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>topsep=0.25em,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>parsep=0pt,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>partopsep=0pt</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">% ==================================================</p>
-<p class="p1">% 自定义排版命令</p>
-<p class="p1">% ==================================================</p>
-<p class="p2"><br></p>
-<p class="p1">% 栏目标题：黑体加粗 + 下方细线</p>
-<p class="p1">\newcommand{\cvsection}[1]{%</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\par\addvspace{1.0em}%</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\Needspace{4\baselineskip}%</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{\large\bfseries #1\par}%</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\vspace{0.22em}%</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\hrule height 0.5pt</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\vspace{0.45em}%</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">% 左侧内容自动换行、右侧日期单行自适应右对齐</p>
-<p class="p1">\newcommand{\datedentry}[2]{%</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\begin{tabularx}{\textwidth}{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>@{}&gt;{\raggedright\arraybackslash}X</p>
-<p class="p1"><span class="Apple-converted-space">    </span>@{\hspace{1em}}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>r@{}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>#1 &amp; #2</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\end{tabularx}\par</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">% 条目下方的缩进补充说明</p>
-<p class="p1">\newcommand{\entrydetail}[1]{%</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\nopagebreak</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\vspace{0.15em}%</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{\small\hspace*{1.5em}#1\par}%</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">% 论文下方的期刊级别与摘要说明</p>
-<p class="p1">\newcommand{\pubnote}[1]{%</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\nopagebreak\\*[0.15em]%</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{\small #1}%</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">% 联系信息宏定义（已加入个人主页链接）</p>
-<p class="p1">\newcommand{\CVEmail}{jinsong@bjtu.edu.cn}</p>
-<p class="p1">\newcommand{\CVPhone}{198-2926-0811}</p>
-<p class="p1">\newcommand{\CVWeb}{jinsong.github.io}</p>
-<p class="p2"><br></p>
-<p class="p1">\begin{document}</p>
-<p class="p2"><br></p>
-<p class="p1">% ==================================================</p>
-<p class="p1">% 个人头部信息</p>
-<p class="p1">% ==================================================</p>
-<p class="p1">{\fontsize{24}{29}\selectfont\bfseries 宋 瑾}</p>
-<p class="p2"><br></p>
-<p class="p1">\vspace{0.55em}</p>
-<p class="p2"><br></p>
-<p class="p1">\begin{tabularx}{\textwidth}{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>@{}&gt;{\raggedright\arraybackslash}X</p>
-<p class="p1"><span class="Apple-converted-space">  </span>@{\hspace{1em}}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&gt;{\raggedleft\arraybackslash}p{7.2cm}@{}</p>
-<p class="p1">}</p>
-<p class="p1">北京交通大学经济管理学院 &amp; 邮箱：\href{mailto:\CVEmail}{\texttt{\CVEmail}} \\[0.15em]</p>
-<p class="p1">应用经济学博士研究生 &amp; 电话：\CVPhone \\[0.15em]</p>
-<p class="p1">北京市海淀区上园村3号（100044） &amp; 个人主页：\href{https://\CVWeb}{\texttt{\CVWeb}} \\[0.15em]</p>
-<p class="p1">研究领域：博弈论、网络经济学 &amp; 预计毕业时间：2027年6月</p>
-<p class="p1">\end{tabularx}</p>
-<p class="p2"><br></p>
-<p class="p1">% ==================================================</p>
-<p class="p1">% 教育经历</p>
-<p class="p1">% ==================================================</p>
-<p class="p1">\cvsection{教育经历}</p>
-<p class="p2"><br></p>
-<p class="p1">\datedentry</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{\textbf{北京交通大学}，经济管理学院，应用经济学，博士研究生}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{2021年9月—至今}</p>
-<p class="p1">\entrydetail{导师：曹志刚 教授}</p>
-<p class="p2"><br></p>
-<p class="p1">\vspace{0.45em}</p>
-<p class="p2"><br></p>
-<p class="p1">\datedentry</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{\textbf{西北大学}，经济管理学院，经济学基地班，经济学学士}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{2017年9月—2021年6月}</p>
-<p class="p2"><br></p>
-<p class="p1">% ==================================================</p>
-<p class="p1">% 已发表及已接收论文</p>
-<p class="p1">% ==================================================</p>
-<p class="p1">\cvsection{已发表及已接收论文}</p>
-<p class="p2"><br></p>
-<p class="p1">\begin{publications}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>\item</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\textbf{宋瑾}、谭志斌\textsuperscript{*}、曹志刚，</p>
-<p class="p1"><span class="Apple-converted-space">  </span>《保研夏令营开营时间选择的理论分析》，</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\textbf{《经济学（季刊）》}，已接收，待刊。</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\href{https://doi.org/10.13821/j.cnki.ceq.2026.05.12}{DOI: 10.13821/j.cnki.ceq.2026.05.12}。</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\pubnote{（CSSCI来源期刊，FMS管理科学高质量期刊T1类，北京交通大学A类期刊）}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>\item</p>
-<p class="p1"><span class="Apple-converted-space">  </span>朱峰、曹志刚、\textbf{宋瑾}\textsuperscript{*}，</p>
-<p class="p1"><span class="Apple-converted-space">  </span>《“扩张的代价”：组内负外部性视角下平台用户生态培育》，</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\textbf{《计量经济学报》}，2026年第6卷第4期，第1000—1019页。</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\pubnote{（CSSCI扩展版来源期刊、CSCD来源期刊，FMS管理科学高质量期刊T1类，北京交通大学A类期刊）}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>\item</p>
-<p class="p1"><span class="Apple-converted-space">  </span>曹志刚、\textbf{宋瑾}\textsuperscript{*}、王思杰、朱峰，</p>
-<p class="p1"><span class="Apple-converted-space">  </span>《博弈论和经济学中均衡不存在的解读》，</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\textbf{《运筹学学报（中英文）》}，2024年第28卷第3期，第132—142页。</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\pubnote{（CSCD核心库来源期刊，FMS管理科学高质量期刊T2类，北京交通大学B类期刊）}</p>
-<p class="p2"><br></p>
-<p class="p1">\end{publications}</p>
-<p class="p2"><br></p>
-<p class="p1">\vspace{0.15em}</p>
-<p class="p1">{\footnotesize 注：\textsuperscript{*} 表示通讯作者。}</p>
-<p class="p2"><br></p>
-<p class="p1">% ==================================================</p>
-<p class="p1">% 学术会议分论坛报告</p>
-<p class="p1">% ==================================================</p>
-<p class="p1">\cvsection{学术会议分论坛报告}</p>
-<p class="p2"><br></p>
-<p class="p1">\datedentry</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{第十三届中国运筹学会博弈论分会学术年会}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{2026年}</p>
-<p class="p2"><br></p>
-<p class="p1">\vspace{0.3em}</p>
-<p class="p2"><br></p>
-<p class="p1">\datedentry</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{第37届中国信息经济学会学术年会}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{2025年}</p>
-<p class="p2"><br></p>
-<p class="p1">\vspace{0.3em}</p>
-<p class="p2"><br></p>
-<p class="p1">\datedentry</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{博弈论及其应用学术会议（获会议优秀论文奖，授奖单位：中国运筹学会博弈论分会）}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{2024年}</p>
-<p class="p2"><br></p>
-<p class="p1">\vspace{0.3em}</p>
-<p class="p2"><br></p>
-<p class="p1">\datedentry</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{第36届中国信息经济学会学术年会}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{2024年}</p>
-<p class="p2"><br></p>
-<p class="p1">\vspace{0.3em}</p>
-<p class="p2"><br></p>
-<p class="p1">\datedentry</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{第六届天津大学博士生学术论坛经济学分论坛}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{2024年}</p>
-<p class="p2"><br></p>
-<p class="p1">% ==================================================</p>
-<p class="p1">% 学术服务</p>
-<p class="p1">% ==================================================</p>
-<p class="p1">\cvsection{学术服务}</p>
-<p class="p2"><br></p>
-<p class="p1">期刊匿名审稿人：《系统科学与数学》</p>
-<p class="p2"><br></p>
-<p class="p1">% ==================================================</p>
-<p class="p1">% 科研项目与教材建设</p>
-<p class="p1">% ==================================================</p>
-<p class="p1">\cvsection{科研项目与教材建设}</p>
-<p class="p2"><br></p>
-<p class="p1">\begin{publications}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\item 协助导师编写《数理经济学》（教育部经济学领域“101计划”核心教材）。</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\item 协助导师翻译 \textit{Game Theory Basics}（Bernhard von Stengel 著，2022）。</p>
-<p class="p1">\end{publications}</p>
-<p class="p2"><br></p>
-<p class="p1">% ==================================================</p>
-<p class="p1">% 教学经历与可授课程</p>
-<p class="p1">% ==================================================</p>
-<p class="p1">\cvsection{教学经历与可授课程}</p>
-<p class="p2"><br></p>
-<p class="p1">\datedentry</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{助教：《中级微观经济学》（本科生课程，获评优秀助教）}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{2023年}</p>
-<p class="p2"><br></p>
-<p class="p1">\vspace{0.3em}</p>
-<p class="p2"><br></p>
-<p class="p1">\datedentry</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{助教：《产业经济学》（本科生课程，获评优秀助教）}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>{2023年}</p>
-<p class="p2"><br></p>
-<p class="p1">\vspace{0.45em}</p>
-<p class="p2"><br></p>
-<p class="p1">可授课程：微观经济学（初级、中级、高级）、博弈论、产业经济学、平台经济学、数字经济学、数理经济学。</p>
-<p class="p2"><br></p>
-<p class="p1">% ==================================================</p>
-<p class="p1">% 底部更新日期</p>
-<p class="p1">% ==================================================</p>
-<p class="p1">\vfill</p>
-<p class="p1">\begin{flushright}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>\footnotesize 更新日期：2026年10月</p>
-<p class="p1">\end{flushright}</p>
-<p class="p2"><br></p>
-<p class="p1">\end{document}</p>
-</body>
-</html>
+\documentclass[
+  UTF8,
+  a4paper,
+  11pt,
+  fontset=fandol
+]{ctexart}
+
+% ==================================================
+% 页面与宏包设置
+% ==================================================
+\usepackage[
+  left=2.2cm,
+  right=2.2cm,
+  top=1.8cm,
+  bottom=1.8cm
+]{geometry}
+
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\hypersetup{
+  hidelinks,
+  pdftitle={宋瑾 - 学术简历 (北京交通大学)},
+  pdfauthor={宋瑾}
+}
+
+\setstretch{1.15}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+
+% ==================================================
+% 页眉页脚
+% ==================================================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{22pt}
+
+% ==================================================
+% 列表格式定义
+% ==================================================
+\setlist[itemize]{
+  leftmargin=1.4em,
+  itemsep=0.3em,
+  topsep=0.2em,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+% 论文列表：采用悬挂缩进
+\newlist{publications}{itemize}{1}
+\setlist[publications]{
+  label={},
+  leftmargin=1.5em,
+  itemindent=-1.5em,
+  itemsep=0.65em,
+  topsep=0.25em,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+% ==================================================
+% 自定义排版命令
+% ==================================================
+
+% 栏目标题：黑体加粗 + 下方细线
+\newcommand{\cvsection}[1]{%
+  \par\addvspace{1.0em}%
+  \Needspace{4\baselineskip}%
+  {\large\bfseries #1\par}%
+  \vspace{0.22em}%
+  \hrule height 0.5pt
+  \vspace{0.45em}%
+}
+
+% 左侧内容自动换行、右侧日期单行自适应右对齐
+\newcommand{\datedentry}[2]{%
+  \begin{tabularx}{\textwidth}{
+    @{}>{\raggedright\arraybackslash}X
+    @{\hspace{1em}}
+    r@{}
+  }
+    #1 & #2
+  \end{tabularx}\par
+}
+
+% 条目下方的缩进补充说明
+\newcommand{\entrydetail}[1]{%
+  \nopagebreak
+  \vspace{0.15em}%
+  {\small\hspace*{1.5em}#1\par}%
+}
+
+% 论文下方的期刊级别与摘要说明
+\newcommand{\pubnote}[1]{%
+  \nopagebreak\\*[0.15em]%
+  {\small #1}%
+}
+
+% 联系信息宏定义（已加入个人主页链接）
+\newcommand{\CVEmail}{jinsong@bjtu.edu.cn}
+\newcommand{\CVPhone}{198-2926-0811}
+\newcommand{\CVWeb}{jinsong.github.io}
+
+\begin{document}
+
+% ==================================================
+% 个人头部信息
+% ==================================================
+{\fontsize{24}{29}\selectfont\bfseries 宋 瑾}
+
+\vspace{0.55em}
+
+\begin{tabularx}{\textwidth}{
+  @{}>{\raggedright\arraybackslash}X
+  @{\hspace{1em}}
+  >{\raggedleft\arraybackslash}p{7.2cm}@{}
+}
+北京交通大学经济管理学院 & 邮箱：\href{mailto:\CVEmail}{\texttt{\CVEmail}} \\[0.15em]
+应用经济学博士研究生 & 电话：\CVPhone \\[0.15em]
+北京市海淀区上园村3号（100044） & 个人主页：\href{https://\CVWeb}{\texttt{\CVWeb}} \\[0.15em]
+研究领域：博弈论、网络经济学 & 预计毕业时间：2027年6月
+\end{tabularx}
+
+% ==================================================
+% 教育经历
+% ==================================================
+\cvsection{教育经历}
+
+\datedentry
+  {\textbf{北京交通大学}，经济管理学院，应用经济学，博士研究生}
+  {2021年9月—至今}
+\entrydetail{导师：曹志刚 教授}
+
+\vspace{0.45em}
+
+\datedentry
+  {\textbf{西北大学}，经济管理学院，经济学基地班，经济学学士}
+  {2017年9月—2021年6月}
+
+% ==================================================
+% 已发表及已接收论文
+% ==================================================
+\cvsection{已发表及已接收论文}
+
+\begin{publications}
+
+  \item
+  \textbf{宋瑾}、谭志斌\textsuperscript{*}、曹志刚，
+  《保研夏令营开营时间选择的理论分析》，
+  \textbf{《经济学（季刊）》}，已接收，待刊。
+  \href{https://doi.org/10.13821/j.cnki.ceq.2026.05.12}{DOI: 10.13821/j.cnki.ceq.2026.05.12}。
+  \pubnote{（CSSCI来源期刊，FMS管理科学高质量期刊T1类，北京交通大学A类期刊）}
+
+  \item
+  朱峰、曹志刚、\textbf{宋瑾}\textsuperscript{*}，
+  《“扩张的代价”：组内负外部性视角下平台用户生态培育》，
+  \textbf{《计量经济学报》}，2026年第6卷第4期，第1000—1019页。
+  \pubnote{（CSSCI扩展版来源期刊、CSCD来源期刊，FMS管理科学高质量期刊T1类，北京交通大学A类期刊）}
+
+  \item
+  曹志刚、\textbf{宋瑾}\textsuperscript{*}、王思杰、朱峰，
+  《博弈论和经济学中均衡不存在的解读》，
+  \textbf{《运筹学学报（中英文）》}，2024年第28卷第3期，第132—142页。
+  \pubnote{（CSCD核心库来源期刊，FMS管理科学高质量期刊T2类，北京交通大学B类期刊）}
+
+\end{publications}
+
+\vspace{0.15em}
+{\footnotesize 注：\textsuperscript{*} 表示通讯作者。}
+
+% ==================================================
+% 学术会议分论坛报告
+% ==================================================
+\cvsection{学术会议分论坛报告}
+
+\datedentry
+  {第十三届中国运筹学会博弈论分会学术年会}
+  {2026年}
+
+\vspace{0.3em}
+
+\datedentry
+  {第37届中国信息经济学会学术年会}
+  {2025年}
+
+\vspace{0.3em}
+
+\datedentry
+  {博弈论及其应用学术会议（获会议优秀论文奖，授奖单位：中国运筹学会博弈论分会）}
+  {2024年}
+
+\vspace{0.3em}
+
+\datedentry
+  {第36届中国信息经济学会学术年会}
+  {2024年}
+
+\vspace{0.3em}
+
+\datedentry
+  {第六届天津大学博士生学术论坛经济学分论坛}
+  {2024年}
+
+% ==================================================
+% 学术服务
+% ==================================================
+\cvsection{学术服务}
+
+期刊匿名审稿人：《系统科学与数学》
+
+% ==================================================
+% 科研项目与教材建设
+% ==================================================
+\cvsection{科研项目与教材建设}
+
+\begin{publications}
+  \item 协助导师编写《数理经济学》（教育部经济学领域“101计划”核心教材）。
+  \item 协助导师翻译 \textit{Game Theory Basics}（Bernhard von Stengel 著，2022）。
+\end{publications}
+
+% ==================================================
+% 教学经历与可授课程
+% ==================================================
+\cvsection{教学经历与可授课程}
+
+\datedentry
+  {助教：《中级微观经济学》（本科生课程，获评优秀助教）}
+  {2023年}
+
+\vspace{0.3em}
+
+\datedentry
+  {助教：《产业经济学》（本科生课程，获评优秀助教）}
+  {2023年}
+
+\vspace{0.45em}
+
+可授课程：微观经济学（初级、中级、高级）、博弈论、产业经济学、平台经济学、数字经济学、数理经济学。
+
+% ==================================================
+% 底部更新日期
+% ==================================================
+\vfill
+\begin{flushright}
+  \footnotesize 更新日期：2026年10月
+\end{flushright}
+
+\end{document}
