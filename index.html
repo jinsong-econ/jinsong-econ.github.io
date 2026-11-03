@@ -9,12 +9,12 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts: Inter (UI/English), Newsreader (Academic Serif), Noto Serif SC & Noto Sans SC (Chinese), JetBrains Mono (Numbers/Code) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- 不蒜子 (Busuanzi) 极简静态网页真实访客统计脚本 -->
+  <!-- 不蒜子实时访客统计 -->
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   <script>
@@ -24,17 +24,7 @@
         extend: {
           colors: {
             navy: {
-              50: '#f0f4f8',
-              100: '#d9e2ec',
-              200: '#bcccdc',
-              500: '#334e68',
-              700: '#1b365d',
-              800: '#102a43',
-              900: '#0a192f',
-            },
-            crimson: {
-              600: '#9b2c2c',
-              700: '#822727',
+              50: '#f0f4f8', 100: '#d9e2ec', 200: '#bcccdc', 500: '#334e68', 700: '#1b365d', 800: '#102a43', 900: '#0a192f',
             }
           },
           fontFamily: {
@@ -48,37 +38,14 @@
   </script>
 
   <style>
-    body {
-      font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #1e293b;
-      background-color: #fcfcfd;
-      -webkit-font-smoothing: antialiased;
-    }
-    .academic-heading {
-      font-family: 'Newsreader', 'Noto Serif SC', Georgia, serif;
-    }
-    .paper-card {
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .paper-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
-    }
-    .jmp-gradient {
-      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-      border-left: 4px solid #1b365d;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.45; transform: scale(1.15); }
-    }
-    .live-dot {
-      animation: pulse-dot 2.2s infinite ease-in-out;
-    }
-    @media print {
-      .no-print { display: none !important; }
-      body { background: white; }
-    }
+    body { font-family: 'Inter', 'Noto Sans SC', sans-serif; color: #1e293b; background-color: #fcfcfd; -webkit-font-smoothing: antialiased; }
+    .academic-heading { font-family: 'Newsreader', 'Noto Serif SC', Georgia, serif; }
+    .paper-card { transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
+    .paper-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06); }
+    .jmp-gradient { background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border-left: 4px solid #1b365d; }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(1.15); } }
+    .live-dot { animation: pulse-dot 2.2s infinite ease-in-out; }
+    @media print { .no-print { display: none !important; } body { background: white; } }
   </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-navy-700 selection:text-white">
@@ -87,441 +54,195 @@
   <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 no-print">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#top" class="flex items-center gap-3 group">
-        <span class="w-8 h-8 rounded-lg bg-navy-700 text-white font-serif font-semibold flex items-center justify-center text-sm tracking-wider group-hover:bg-navy-800 transition-colors">
-          SJ
-        </span>
+        <span class="w-8 h-8 rounded-lg bg-navy-700 text-white font-serif font-semibold flex items-center justify-center text-sm tracking-wider">SJ</span>
         <div class="flex flex-col">
-          <span class="font-serif font-semibold text-lg tracking-tight text-slate-900 leading-none" id="nav-name">
-            宋 瑾
-          </span>
-          <span class="text-[11px] text-slate-500 font-medium mt-0.5" id="nav-sub">
-            Jin Song · BJTU Economics
-          </span>
+          <span class="font-serif font-semibold text-lg tracking-tight text-slate-900 leading-none">宋 瑾</span>
+          <span class="text-[11px] text-slate-500 font-medium mt-0.5">Jin Song · BJTU Economics</span>
         </div>
       </a>
-
-      <!-- 导航菜单 -->
       <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-        <a href="#about" class="hover:text-navy-700 transition-colors" data-i18n="navAbout">关于我</a>
-        <a href="#publications" class="hover:text-navy-700 transition-colors" data-i18n="navPubs">发表论文</a>
-        <a href="#conferences" class="hover:text-navy-700 transition-colors" data-i18n="navConf">学术会议</a>
-        <a href="#projects" class="hover:text-navy-700 transition-colors" data-i18n="navProj">教材与服务</a>
-        <a href="#teaching" class="hover:text-navy-700 transition-colors" data-i18n="navTeaching">教学经历</a>
-        <a href="#visitors" class="hover:text-navy-700 transition-colors flex items-center gap-1" data-i18n="navVisitors">
-          访客统计
-        </a>
-        <button onclick="openCVModal()" class="hover:text-navy-700 transition-colors font-semibold text-navy-700" data-i18n="navCV">
-          学术简历 (CV)
-        </button>
+        <a href="#about" class="hover:text-navy-700 transition-colors">关于我</a>
+        <a href="#publications" class="hover:text-navy-700 transition-colors">发表论文</a>
+        <a href="#conferences" class="hover:text-navy-700 transition-colors">学术会议</a>
+        <a href="#projects" class="hover:text-navy-700 transition-colors">教材与服务</a>
+        <button onclick="openCVModal()" class="hover:text-navy-700 transition-colors font-semibold text-navy-700">学术简历 (CV)</button>
       </nav>
-
-      <!-- 右侧操作区：语言切换 + 简历预览 -->
       <div class="flex items-center gap-2.5">
-        <button
-          id="lang-toggle"
-          onclick="toggleLanguage()"
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 hover:bg-navy-700 hover:text-white transition-all border border-slate-200/80 shadow-sm"
-          title="Switch Language / 切换中英文"
-        >
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-          </svg>
+        <button onclick="toggleLanguage()" id="lang-toggle" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 hover:bg-navy-700 hover:text-white transition-all border border-slate-200/80 shadow-sm">
           <span id="lang-label">English</span>
         </button>
-
-        <button
-          onclick="openCVModal()"
-          class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-navy-700 text-white hover:bg-navy-800 transition-all shadow-sm"
-        >
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          <span data-i18n="btnCV">查看简历</span>
+        <button onclick="openCVModal()" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-navy-700 text-white hover:bg-navy-800 transition-all shadow-sm">
+          查看简历
         </button>
       </div>
     </div>
   </header>
 
-  <!-- 主体内容区 -->
+  <!-- 主体内容 -->
   <main id="top" class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
-      <!-- 左侧个人信息固定栏 (4列) -->
+      <!-- 左侧个人信息固定栏（已剔除手机号、出生年月等隐私） -->
       <aside class="lg:col-span-4 lg:sticky lg:top-24 bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-sm">
         <div class="flex flex-col items-center text-center">
-          <!-- 个人学术肖像 -->
           <div class="relative mb-5 group cursor-pointer" onclick="document.getElementById('avatar-upload').click()" title="点击可选择您的照片实时预览">
             <div class="w-36 h-44 sm:w-40 sm:h-48 rounded-xl overflow-hidden ring-4 ring-slate-100 shadow-md bg-slate-100 flex items-center justify-center relative">
-              <img
-                id="profile-avatar"
-                src="证件照.jpg"
-                alt="宋瑾 (Jin Song)"
-                class="w-full h-full object-cover object-top"
-                onerror="handleAvatarError(this)"
-              />
-              <!-- 备用优雅学术头像占位（当找不到图片文件时显示） -->
-              <div id="avatar-fallback" class="hidden inset-0 flex-col items-center justify-center bg-gradient-to-b from-slate-100 to-slate-200 text-navy-800 p-3 text-center">
-                <div class="w-16 h-16 rounded-full bg-navy-700 text-white font-serif font-bold text-xl flex items-center justify-center mb-2 shadow-sm">
-                  SJ
-                </div>
-                <span class="text-xs font-serif font-semibold text-slate-700">宋 瑾 · Jin Song</span>
+              <img id="profile-avatar" src="深蓝西装学术肖像 (1).png" alt="宋瑾 (Jin Song)" class="w-full h-full object-cover object-top" onerror="handleAvatarError(this)" />
+              <div id="avatar-fallback" class="hidden inset-0 flex-col items-center justify-center bg-slate-100 text-navy-800 p-3 text-center">
+                <div class="w-16 h-16 rounded-full bg-navy-700 text-white font-serif font-bold text-xl flex items-center justify-center mb-2">SJ</div>
+                <span class="text-xs font-serif font-semibold text-slate-700">宋 瑾</span>
               </div>
-              <!-- 悬停提示 -->
-              <div class="absolute inset-0 bg-navy-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium px-2">
-                点击预览/更换本地照片
-              </div>
+              <div class="absolute inset-0 bg-navy-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium px-2">更换本地照片</div>
             </div>
             <input type="file" id="avatar-upload" accept="image/*" class="hidden" onchange="previewLocalAvatar(event)" />
           </div>
 
-          <!-- 姓名与头衔 -->
-          <h1 class="academic-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight" id="profile-name">
-            宋 瑾
-          </h1>
-          <p class="text-sm text-slate-500 font-medium mt-0.5" id="profile-name-sub">
-            Jin Song
-          </p>
+          <h1 class="academic-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">宋 瑾</h1>
+          <p class="text-sm text-slate-500 font-medium mt-0.5">Jin Song</p>
+          <p class="mt-3 text-sm font-semibold text-navy-700">应用经济学 博士研究生[cite: 7, 8]</p>
+          <p class="text-xs text-slate-600 mt-1">北京交通大学 经济管理学院[cite: 7, 8]</p>
+          <p class="text-xs text-slate-500 mt-1">导师：曹志刚 教授[cite: 7, 8]</p>
 
-          <!-- 职位与导师 -->
-          <p class="mt-3 text-sm font-semibold text-navy-700" id="profile-role">
-            应用经济学 博士研究生
-          </p>
-          <p class="text-xs text-slate-600 mt-1" id="profile-dept">
-            北京交通大学 经济管理学院
-          </p>
-          <p class="text-xs text-slate-500 mt-1" id="profile-advisor">
-            导师：曹志刚 教授
-          </p>
-
-          <!-- 毕业与求职状态徽章 -->
           <div class="mt-4 w-full">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-amber-50 text-amber-900 border border-amber-200/80">
               <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-              <span id="jm-badge-text">预计毕业时间：2027年6月</span>
+              <span>预计毕业时间：2027年6月[cite: 7, 8]</span>
             </div>
           </div>
 
           <!-- 研究领域标签 -->
           <div class="mt-5 pt-5 border-t border-slate-100 w-full text-left">
-            <h2 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2.5" data-i18n="sidebarFields">
-              研究领域 (Research Fields)
-            </h2>
-            <div id="research-interests" class="flex flex-wrap gap-1.5">
-              <!-- 动态渲染 -->
+            <h2 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2.5">研究领域 (Research Fields)</h2>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-700 border">博弈论</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-700 border">网络经济学</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-700 border">平台与数字经济</span>
             </div>
           </div>
 
-          <!-- 联系方式列表（已剔除手机号码，仅保留学术邮箱与机构地址） -->
+          <!-- 仅保留安全合规的学术邮箱与机构地址 -->
           <div class="mt-5 pt-5 border-t border-slate-100 w-full space-y-3 text-left text-xs text-slate-600">
-            <!-- 邮箱 -->
             <div class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-navy-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
+              <svg class="w-4 h-4 text-navy-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               <div class="break-all">
-                <span class="text-slate-400 block text-[11px]" data-i18n="labelEmail">电子邮箱 (Email)</span>
-                <a id="contact-email" href="mailto:jinsong@bjtu.edu.cn" class="font-mono text-slate-800 hover:text-navy-700 font-medium underline underline-offset-2">
-                  jinsong@bjtu.edu.cn
-                </a>
+                <span class="text-slate-400 block text-[11px]">电子邮箱 (Email)</span>
+                <a href="mailto:jinsong@bjtu.edu.cn" class="font-mono text-slate-800 hover:text-navy-700 font-medium underline">jinsong@bjtu.edu.cn[cite: 7, 8]</a>
               </div>
             </div>
-
-            <!-- 通信地址 -->
             <div class="flex items-start gap-2.5">
-              <svg class="w-4 h-4 text-navy-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
+              <svg class="w-4 h-4 text-navy-700 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
               <div>
-                <span class="text-slate-400 block text-[11px]" data-i18n="labelAddress">通信地址 (Location)</span>
-                <span id="contact-location" class="text-slate-700 leading-snug block">北京市海淀区上园村3号（100044）</span>
+                <span class="text-slate-400 block text-[11px]">通信地址 (Location)</span>
+                <span class="text-slate-700 leading-snug block">北京市海淀区上园村3号（100044）[cite: 7, 8]</span>
               </div>
             </div>
           </div>
 
-          <!-- 简历快捷按钮组 -->
           <div class="mt-6 pt-5 border-t border-slate-100 w-full grid grid-cols-2 gap-2">
-            <button onclick="openCVModal()" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-navy-700 hover:bg-navy-800 text-white text-xs font-medium transition-colors shadow-sm">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-              </svg>
-              <span data-i18n="sideBtnPreviewCV">在线简历 (CV)</span>
-            </button>
-            <button onclick="downloadLatexCV()" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium transition-colors">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              <span data-i18n="sideBtnDownloadTex">LaTeX 源码</span>
-            </button>
+            <button onclick="openCVModal()" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-navy-700 text-white text-xs font-medium shadow-sm">在线简历 (CV)</button>
+            <button onclick="downloadLatexCV()" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium">LaTeX 源码</button>
           </div>
-
-          <!-- 侧边栏精巧访客统计卡片 -->
-          <div class="mt-5 pt-4 border-t border-slate-100 w-full">
-            <a href="#visitors" class="block w-full rounded-xl bg-slate-50/90 hover:bg-slate-100/80 border border-slate-200/70 p-3 transition-all text-left group">
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
-                  <span class="w-2 h-2 rounded-full bg-emerald-500 live-dot"></span>
-                  <span data-i18n="sidebarVisitorTitle">主页访问统计</span>
-                </span>
-                <span class="text-[10px] text-navy-700 font-medium group-hover:translate-x-0.5 transition-transform" data-i18n="sidebarVisitorMore">
-                  详情 →
-                </span>
-              </div>
-              <div class="grid grid-cols-2 gap-2 pt-1">
-                <div class="bg-white rounded-lg px-2.5 py-1.5 border border-slate-200/60">
-                  <span class="block text-[10px] text-slate-400" data-i18n="labelPV">总浏览量 (PV)</span>
-                  <span id="sidebar-pv-num" class="font-mono text-sm font-semibold text-navy-800">--</span>
-                </div>
-                <div class="bg-white rounded-lg px-2.5 py-1.5 border border-slate-200/60">
-                  <span class="block text-[10px] text-slate-400" data-i18n="labelUV">独立访客 (UV)</span>
-                  <span id="sidebar-uv-num" class="font-mono text-sm font-semibold text-navy-800">--</span>
-                </div>
-              </div>
-            </a>
-          </div>
-
         </div>
       </aside>
 
-      <!-- 右侧学术详情主栏 (8列) -->
+      <!-- 右侧学术详情主栏 -->
       <div class="lg:col-span-8 space-y-12">
 
-        <!-- 1. 关于我 & 教育经历 -->
+        <!-- 1. 个人简介与教育背景 -->
         <section id="about" class="scroll-mt-24">
           <h2 class="academic-heading text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2.5 mb-4 flex items-center justify-between">
-            <span data-i18n="secAbout">个人简介与教育背景</span>
+            <span>个人简介与教育背景</span>
             <span class="text-xs font-sans font-normal text-slate-400 uppercase tracking-widest">Biography & Education</span>
           </h2>
-          
-          <div id="bio-content" class="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-3 text-[15px]">
-            <!-- 动态渲染 -->
+          <div class="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-3 text-[15px]">
+            <p>欢迎访问我的个人学术主页。我是<strong>北京交通大学经济管理学院</strong>应用经济学专业的博士研究生（2021年9月入学，预计2027年6月毕业），师从<strong>曹志刚教授</strong>[cite: 7, 8]。在此之前，我于2021年6月在<strong>西北大学经济管理学院</strong>经济学基地班获得经济学学士学位[cite: 7, 8]。</p>
+            <p>我的主要研究领域为<strong>博弈论、网络经济学、平台与数字经济</strong>[cite: 7, 8]。致力于运用博弈论与理论建模工具，探讨现实制度与数字平台中的核心微观机制。</p>
           </div>
 
-          <!-- 教育背景卡片 -->
-          <div class="mt-6 bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm">
-            <h3 class="text-xs font-semibold uppercase tracking-wider text-navy-700 mb-3.5 flex items-center gap-1.5">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-              </svg>
-              <span data-i18n="subEducation">教育经历 (Education)</span>
-            </h3>
-            <div id="education-list" class="space-y-4">
-              <!-- 动态渲染 -->
+          <!-- 教育经历卡片 -->
+          <div class="mt-6 bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm space-y-4">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-navy-700 mb-3.5">教育经历 (Education)[cite: 7, 8]</h3>
+            <div class="flex justify-between items-baseline">
+              <div>
+                <div class="font-semibold text-slate-900 text-sm">北京交通大学 经济管理学院</div>
+                <div class="text-xs text-slate-600 mt-0.5">博士研究生 · 应用经济学（导师：曹志刚 教授）[cite: 7, 8]</div>
+              </div>
+              <span class="font-mono text-xs text-slate-500">2021.09 — 2027.06 (预计)[cite: 7, 8]</span>
+            </div>
+            <div class="flex justify-between items-baseline pt-3 border-t border-slate-100">
+              <div>
+                <div class="font-semibold text-slate-900 text-sm">西北大学 经济管理学院（双一流）</div>
+                <div class="text-xs text-slate-600 mt-0.5">经济学学士 · 经济学基地班（理论经济学学科评估 A-）[cite: 7, 8]</div>
+              </div>
+              <span class="font-mono text-xs text-slate-500">2017.09 — 2021.06[cite: 7, 8]</span>
             </div>
           </div>
         </section>
 
-        <!-- 2. 代表作聚焦 (Featured / Representative Paper) -->
+        <!-- 2. 代表性论文聚焦 (JMP) -->
         <section id="featured-paper" class="scroll-mt-24">
           <div class="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-5">
             <h2 class="academic-heading text-2xl font-bold text-slate-900 flex items-center gap-2.5">
-              <span data-i18n="secFeatured">代表性论文聚焦</span>
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-sans font-semibold bg-navy-700 text-white">
-                Representative Paper
-              </span>
+              <span>代表性论文聚焦</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-sans font-semibold bg-navy-700 text-white">Representative Paper[cite: 7, 8]</span>
             </h2>
           </div>
-
-          <div id="jmp-container">
-            <!-- 动态渲染代表作卡片 -->
+          <div class="jmp-gradient rounded-2xl border border-slate-200/90 p-6 shadow-sm paper-card">
+            <div class="flex justify-between items-center mb-2.5">
+              <span class="text-xs font-semibold text-navy-700 uppercase tracking-wider">Job Market Paper / 《经济学（季刊）》已接收[cite: 7, 8]</span>
+              <span class="text-xs font-mono text-slate-500">FMS T1类 · 北交大A类[cite: 7, 8]</span>
+            </div>
+            <h3 class="academic-heading text-xl font-bold text-slate-900 leading-snug">《保研夏令营开营时间选择的理论分析》[cite: 7, 8]</h3>
+            <p class="text-sm text-slate-700 mt-2"><strong>宋瑾</strong>、谭志斌*、曹志刚[cite: 7, 8]</p>
+            <p class="text-sm font-medium text-navy-700 mt-1">《经济学（季刊）》, 2026, 26(5): 1547-1567[cite: 7, 8]</p>
+            <div class="mt-4">
+              <a href="https://doi.org/10.13821/j.cnki.ceq.2026.05.12" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-navy-700 text-white">DOI: 10.13821/j.cnki.ceq.2026.05.12[cite: 7, 8]</a>
+            </div>
           </div>
         </section>
 
-        <!-- 3. 已发表及已接收论文 (Publications) -->
+        <!-- 3. 已发表及已接收论文 -->
         <section id="publications" class="scroll-mt-24">
-          <div class="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-5">
-            <div>
-              <h2 class="academic-heading text-2xl font-bold text-slate-900" data-i18n="secPubs">
-                已发表及已接收论文
-              </h2>
-            </div>
-            <span class="text-xs font-sans text-slate-400" data-i18n="corrNote">
-              注：* 表示通讯作者
-            </span>
+          <h2 class="academic-heading text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2.5 mb-5">已发表及已接收论文</h2>
+          <div class="space-y-4">
+            <article class="bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm paper-card">
+              <h3 class="font-serif font-bold text-base text-slate-900">1. 《保研夏令营开营时间选择的理论分析》[cite: 7, 8]</h3>
+              <p class="text-sm text-slate-700 mt-1"><strong>宋瑾</strong>、谭志斌*、曹志刚[cite: 7, 8]</p>
+              <p class="text-sm text-slate-600 mt-1">《经济学（季刊）》, 2026, 26(5): 1547-1567. （CSSCI，FMS T1类）[cite: 7, 8]</p>
+            </article>
+            <article class="bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm paper-card">
+              <h3 class="font-serif font-bold text-base text-slate-900">2. 《“扩张的代价”：组内负外部性视角下平台用户生态培育》[cite: 7, 8]</h3>
+              <p class="text-sm text-slate-700 mt-1">朱峰、曹志刚、<strong>宋瑾</strong>*[cite: 7, 8]</p>
+              <p class="text-sm text-slate-600 mt-1">《计量经济学报》, 2026, 6(4): 1000-1019. （CSSCI扩展版/CSCD，FMS T1类）[cite: 7, 8]</p>
+            </article>
+            <article class="bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm paper-card">
+              <h3 class="font-serif font-bold text-base text-slate-900">3. 《博弈论和经济学中均衡不存在的解读》[cite: 7, 8]</h3>
+              <p class="text-sm text-slate-700 mt-1">曹志刚、<strong>宋瑾</strong>*、王思杰、朱峰[cite: 7, 8]</p>
+              <p class="text-sm text-slate-600 mt-1">《运筹学学报（中英文）》, 2024, 28(03): 132-142. （CSCD，FMS T2类）[cite: 7, 8]</p>
+            </article>
           </div>
-
-          <div id="publications-list" class="space-y-4">
-            <!-- 动态渲染全部3篇论文 -->
-          </div>
+          <p class="text-xs text-slate-500 mt-3">注：* 表示通讯作者[cite: 7, 8]。</p>
         </section>
 
-        <!-- 4. 学术会议分论坛报告 (Conference Presentations) -->
+        <!-- 4. 学术会议报告 -->
         <section id="conferences" class="scroll-mt-24">
-          <div class="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-5">
-            <h2 class="academic-heading text-2xl font-bold text-slate-900" data-i18n="secConf">
-              学术会议分论坛报告
-            </h2>
-            <span class="text-xs font-sans text-slate-400 uppercase tracking-widest">Conference Presentations</span>
-          </div>
-
-          <div class="bg-white rounded-xl border border-slate-200/80 divide-y divide-slate-100 shadow-sm" id="conference-list">
-            <!-- 动态渲染5场学术会议报告 -->
+          <h2 class="academic-heading text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2.5 mb-5">学术会议分论坛报告</h2>
+          <div class="bg-white rounded-xl border border-slate-200/80 divide-y divide-slate-100 shadow-sm">
+            <div class="p-4 flex justify-between items-center text-sm"><span>2026数字经济与数字金融前沿论坛（分论坛报告）</span><span class="font-mono text-xs text-slate-500">2026年[cite: 7, 8]</span></div>
+            <div class="p-4 flex justify-between items-center text-sm"><span>第十三届中国运筹学会博弈论分会学术年会（分论坛报告）</span><span class="font-mono text-xs text-slate-500">2026年[cite: 7, 8]</span></div>
+            <div class="p-4 flex justify-between items-center text-sm"><span>第37届中国信息经济学会学术年会（分论坛报告）</span><span class="font-mono text-xs text-slate-500">2025年[cite: 7, 8]</span></div>
+            <div class="p-4 flex justify-between items-center text-sm"><span>2024年中国博弈论及其应用国际学术会议（获优秀论文奖）</span><span class="font-mono text-xs text-slate-500">2024年[cite: 7, 8]</span></div>
+            <div class="p-4 flex justify-between items-center text-sm"><span>第36届中国信息经济学会学术年会（分论坛报告）</span><span class="font-mono text-xs text-slate-500">2024年[cite: 7, 8]</span></div>
           </div>
         </section>
 
-        <!-- 5. 科研项目、教材建设与学术服务 -->
+        <!-- 5. 学术服务与教材建设 -->
         <section id="projects" class="scroll-mt-24">
-          <div class="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-5">
-            <h2 class="academic-heading text-2xl font-bold text-slate-900" data-i18n="secProj">
-              教材建设与学术服务
-            </h2>
-            <span class="text-xs font-sans text-slate-400 uppercase tracking-widest">Textbooks & Academic Service</span>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- 教材与译著 -->
-            <div class="bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm">
-              <h3 class="text-xs font-semibold uppercase tracking-wider text-navy-700 mb-3 flex items-center gap-1.5">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-                <span data-i18n="subTextbooks">科研项目与教材建设</span>
-              </h3>
-              <ul id="textbooks-list" class="space-y-3 text-sm text-slate-700">
-                <!-- 动态渲染 -->
-              </ul>
-            </div>
-
-            <!-- 学术服务与获奖荣誉 -->
-            <div class="bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm flex flex-col justify-between">
-              <div>
-                <h3 class="text-xs font-semibold uppercase tracking-wider text-navy-700 mb-3 flex items-center gap-1.5">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span data-i18n="subService">学术服务 (Referee Service)</span>
-                </h3>
-                <div id="service-content" class="text-sm text-slate-700 mb-5">
-                  <!-- 动态渲染 -->
-                </div>
-              </div>
-
-              <div class="pt-4 border-t border-slate-100">
-                <h3 class="text-xs font-semibold uppercase tracking-wider text-amber-800 mb-2.5 flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                  </svg>
-                  <span data-i18n="subHonors">学术荣誉与奖项</span>
-                </h3>
-                <ul id="honors-list" class="space-y-2 text-xs text-slate-700">
-                  <!-- 动态渲染 -->
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 6. 教学经历与可授课程 -->
-        <section id="teaching" class="scroll-mt-24">
-          <div class="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-5">
-            <h2 class="academic-heading text-2xl font-bold text-slate-900" data-i18n="secTeaching">
-              教学经历与可授课程
-            </h2>
-            <span class="text-xs font-sans text-slate-400 uppercase tracking-widest">Teaching</span>
-          </div>
-
-          <div class="bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm space-y-5">
-            <div>
-              <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3" data-i18n="subTA">
-                助教经历 (Teaching Assistant)
-              </h3>
-              <div id="teaching-list" class="space-y-3">
-                <!-- 动态渲染 -->
-              </div>
-            </div>
-
-            <div class="pt-4 border-t border-slate-100">
-              <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2.5" data-i18n="subCanTeach">
-                可授课程 (Teaching Interests)
-              </h3>
-              <div id="can-teach-list" class="flex flex-wrap gap-2">
-                <!-- 动态渲染 -->
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 7. 访客统计与学术足迹模块 (已修复双数字问题，每项仅展示单一清晰数值) -->
-        <section id="visitors" class="scroll-mt-24">
-          <div class="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-5">
-            <h2 class="academic-heading text-2xl font-bold text-slate-900 flex items-center gap-2.5">
-              <span data-i18n="secVisitors">访客统计与访问热度</span>
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-sans font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 live-dot"></span>
-                <span data-i18n="visitorLiveTag">实时计数已启用</span>
-              </span>
-            </h2>
-            <span class="text-xs font-sans text-slate-400 uppercase tracking-widest">Visitor Analytics</span>
-          </div>
-
-          <div class="bg-white rounded-xl border border-slate-200/80 p-5 sm:p-6 shadow-sm">
-            <!-- 隐藏不蒜子原生容器（仅在后台读取数值，不直接暴露在页面上避免出现双数字） -->
-            <div class="hidden" aria-hidden="true">
-              <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span></span>
-              <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span></span>
-            </div>
-
-            <!-- 3项核心指标卡片 -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <!-- 总访问量 PV -->
-              <div class="rounded-xl bg-slate-50/80 border border-slate-200/70 p-4 flex items-center justify-between">
-                <div>
-                  <span class="text-xs font-medium text-slate-500 block" data-i18n="cardPVTitle">主页总访问量 (Pageviews)</span>
-                  <div class="mt-1 flex items-baseline gap-2">
-                    <span id="main-pv-num" class="font-mono text-2xl font-bold text-navy-800">--</span>
-                    <span class="text-[11px] text-emerald-700 font-medium" data-i18n="cardPVSub">次浏览</span>
-                  </div>
-                </div>
-                <div class="w-10 h-10 rounded-lg bg-navy-50 text-navy-700 flex items-center justify-center shrink-0">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
-                </div>
-              </div>
-
-              <!-- 独立访客数 UV -->
-              <div class="rounded-xl bg-slate-50/80 border border-slate-200/70 p-4 flex items-center justify-between">
-                <div>
-                  <span class="text-xs font-medium text-slate-500 block" data-i18n="cardUVTitle">独立访客数 (Visitors)</span>
-                  <div class="mt-1 flex items-baseline gap-2">
-                    <span id="main-uv-num" class="font-mono text-2xl font-bold text-navy-800">--</span>
-                    <span class="text-[11px] text-slate-500 font-medium" data-i18n="cardUVSub">位学者/访客</span>
-                  </div>
-                </div>
-                <div class="w-10 h-10 rounded-lg bg-navy-50 text-navy-700 flex items-center justify-center shrink-0">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-              </div>
-
-              <!-- 您本机的访问记录 -->
-              <div class="rounded-xl bg-slate-50/80 border border-slate-200/70 p-4 flex items-center justify-between">
-                <div>
-                  <span class="text-xs font-medium text-slate-500 block" data-i18n="cardLocalTitle">您的访问次数 (Your Visits)</span>
-                  <div class="mt-1 flex items-baseline gap-2">
-                    <span id="local-visit-num" class="font-mono text-2xl font-bold text-navy-800">1</span>
-                    <span class="text-[11px] text-slate-500 font-medium" data-i18n="cardLocalSub">当前设备累计</span>
-                  </div>
-                </div>
-                <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <!-- 底部说明 -->
-            <div class="mt-4 pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-500">
-              <div class="flex items-center gap-2">
-                <span id="visitor-status-note" data-i18n="visitorNote">
-                  统计说明：已内置 Busuanzi 静态网页计数器，自动统计全球真实访客数据。
-                </span>
-              </div>
-            </div>
+          <h2 class="academic-heading text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2.5 mb-5">学术服务与教材建设</h2>
+          <div class="bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm space-y-3 text-sm text-slate-700">
+            <p>• <strong>期刊审稿服务</strong>：《系统科学与数学》[cite: 7, 8]</p>
+            <p>• <strong>教材编写</strong>：协助导师编写《数理经济学》（教育部“101”工程教材）[cite: 7, 8]</p>
+            <p>• <strong>学术翻译</strong>：协助导师翻译 <em>Game Theory Basics</em> (Bernhard von Stengel, 2022)[cite: 7, 8]</p>
           </div>
         </section>
 
@@ -532,903 +253,73 @@
   <!-- 页脚 -->
   <footer class="border-t border-slate-200/80 bg-white mt-16 no-print">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-      <div>
-        © 2026 <span class="font-medium text-slate-700">宋瑾 (Jin Song)</span> · 北京交通大学经济管理学院
-      </div>
-      <div class="flex items-center gap-4">
-        <span class="inline-flex items-center gap-1.5 text-slate-600">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-          <span data-i18n="footerVisitors">累计访问：</span>
-          <strong id="footer-pv-num" class="font-mono text-navy-700">--</strong>
-          <span data-i18n="footerTimes">次</span>
-        </span>
-        <span>·</span>
-        <span data-i18n="footerUpdated">更新日期：2026年10月</span>
-        <span>·</span>
-        <button onclick="openCVModal()" class="text-navy-700 hover:underline font-medium" data-i18n="footerViewCV">
-          在线预览学术简历
-        </button>
+      <div>© 2026 <span class="font-medium text-slate-700">宋瑾 (Jin Song)</span> · 北京交通大学经济管理学院[cite: 7, 8]</div>
+      <div class="flex items-center gap-2">
+        <span>累计访问：<strong id="footer-pv-num" class="font-mono text-navy-700">--</strong> 次</span>
       </div>
     </div>
   </footer>
 
-  <!-- 在线学术简历 (CV) 预览与打印弹窗（已剔除手机号） -->
+  <!-- 简历预览弹窗 (CV Modal) -->
   <div id="cv-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 no-print">
     <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden">
-      <!-- 弹窗顶部栏 -->
       <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <span class="w-2.5 h-2.5 rounded-full bg-navy-700"></span>
-          <h3 class="font-serif font-bold text-slate-900 text-base">宋瑾 - 学术简历 (Academic CV)</h3>
-        </div>
+        <h3 class="font-serif font-bold text-slate-900 text-base">宋瑾 - 学术简历 (Academic CV)</h3>
         <div class="flex items-center gap-2">
-          <button onclick="downloadLatexCV()" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 transition-colors">
-            下载 .tex 源码
-          </button>
-          <button onclick="window.print()" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-navy-700 text-white hover:bg-navy-800 transition-colors">
-            打印 / 导出 PDF
-          </button>
-          <button onclick="closeCVModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          <button onclick="window.print()" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-navy-700 text-white">打印 / 导出 PDF</button>
+          <button onclick="closeCVModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700">✕</button>
         </div>
       </div>
-
-      <!-- 弹窗内简历正文（已移除电话号码） -->
-      <div class="p-6 sm:p-10 overflow-y-auto space-y-6 text-sm text-slate-800 leading-relaxed font-serif">
-        <div class="border-b-2 border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
-          <div>
-            <h1 class="text-3xl font-bold text-slate-900 tracking-tight">宋 瑾</h1>
-            <p class="text-slate-600 mt-1 font-sans text-xs">北京交通大学经济管理学院 · 应用经济学博士研究生</p>
-            <p class="text-slate-600 font-sans text-xs">研究领域：博弈论、网络经济学、平台与数字经济</p>
-          </div>
-          <div class="text-xs font-sans text-slate-600 sm:text-right space-y-0.5">
-            <p>邮箱：<span class="font-mono">jinsong@bjtu.edu.cn</span></p>
-            <p>个人主页：<span class="font-mono">https://jinsong-econ.github.io</span></p>
-            <p>通信地址：北京市海淀区上园村3号（100044）</p>
-            <p>预计毕业时间：2027年6月</p>
-          </div>
-        </div>
-
-        <!-- 教育经历 -->
-        <div>
-          <h2 class="text-base font-bold text-slate-900 border-b border-slate-300 pb-1 mb-2.5">教育经历</h2>
-          <div class="space-y-2 text-xs sm:text-sm font-sans">
-            <div class="flex justify-between">
-              <span><strong>北京交通大学</strong>，经济管理学院，应用经济学，博士研究生（导师：曹志刚 教授）</span>
-              <span class="text-slate-500 shrink-0">2021年9月—至今</span>
-            </div>
-            <div class="flex justify-between">
-              <span><strong>西北大学</strong>，经济管理学院，经济学基地班，经济学学士</span>
-              <span class="text-slate-500 shrink-0">2017年9月—2021年6月</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 已发表及已接收论文 -->
-        <div>
-          <h2 class="text-base font-bold text-slate-900 border-b border-slate-300 pb-1 mb-2.5">已发表及已接收论文</h2>
-          <ol class="list-decimal list-inside space-y-3 text-xs sm:text-sm font-sans">
-            <li>
-              <strong>宋瑾</strong>、谭志斌<sup>*</sup>、曹志刚，《保研夏令营开营时间选择的理论分析》，<strong>《经济学（季刊）》</strong>，已接收，待刊。DOI: 10.13821/j.cnki.ceq.2026.05.12。
-              <div class="text-xs text-slate-500 pl-4 mt-0.5">（CSSCI来源期刊，FMS管理科学高质量期刊T1类，北京交通大学A类期刊）</div>
-            </li>
-            <li>
-              朱峰、曹志刚、<strong>宋瑾</strong><sup>*</sup>，《“扩张的代价”：组内负外部性视角下平台用户生态培育》，<strong>《计量经济学报》</strong>，2026年第6卷第4期，第1000—1019页。
-              <div class="text-xs text-slate-500 pl-4 mt-0.5">（CSSCI扩展版来源期刊、CSCD来源期刊，FMS管理科学高质量期刊T1类，北京交通大学A类期刊）</div>
-            </li>
-            <li>
-              曹志刚、<strong>宋瑾</strong><sup>*</sup>、王思杰、朱峰，《博弈论和经济学中均衡不存在的解读》，<strong>《运筹学学报（中英文）》</strong>，2024年第28卷第3期，第132—142页。
-              <div class="text-xs text-slate-500 pl-4 mt-0.5">（CSCD核心库来源期刊，FMS管理科学高质量期刊T2类，北京交通大学B类期刊）</div>
-            </li>
-          </ol>
-          <p class="text-xs text-slate-500 font-sans mt-2">注：* 表示通讯作者。</p>
-        </div>
-
-        <!-- 学术会议分论坛报告 -->
-        <div>
-          <h2 class="text-base font-bold text-slate-900 border-b border-slate-300 pb-1 mb-2.5">学术会议分论坛报告</h2>
-          <div class="space-y-1.5 text-xs sm:text-sm font-sans">
-            <div class="flex justify-between"><span>第十三届中国运筹学会博弈论分会学术年会</span><span class="text-slate-500">2026年</span></div>
-            <div class="flex justify-between"><span>第37届中国信息经济学会学术年会</span><span class="text-slate-500">2025年</span></div>
-            <div class="flex justify-between"><span>博弈论及其应用学术会议（获会议优秀论文奖，授奖单位：中国运筹学会博弈论分会）</span><span class="text-slate-500">2024年</span></div>
-            <div class="flex justify-between"><span>第36届中国信息经济学会学术年会</span><span class="text-slate-500">2024年</span></div>
-            <div class="flex justify-between"><span>第六届天津大学博士生学术论坛经济学分论坛</span><span class="text-slate-500">2024年</span></div>
-          </div>
-        </div>
-
-        <!-- 学术服务 & 教材建设 & 教学经历 -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 font-sans text-xs sm:text-sm">
-          <div>
-            <h2 class="text-base font-serif font-bold text-slate-900 border-b border-slate-300 pb-1 mb-2">科研项目与教材建设</h2>
-            <ul class="list-disc list-inside space-y-1.5">
-              <li>协助导师编写《数理经济学》（教育部经济学领域“101计划”核心教材）。</li>
-              <li>协助导师翻译 <em>Game Theory Basics</em>（Bernhard von Stengel 著，2022）。</li>
-            </ul>
-            <h2 class="text-base font-serif font-bold text-slate-900 border-b border-slate-300 pb-1 mt-4 mb-2">学术服务</h2>
-            <p>期刊匿名审稿人：《系统科学与数学》</p>
-          </div>
-          <div>
-            <h2 class="text-base font-serif font-bold text-slate-900 border-b border-slate-300 pb-1 mb-2">教学经历与可授课程</h2>
-            <ul class="list-disc list-inside space-y-1.5">
-              <li>助教：《中级微观经济学》（本科生课程，获评优秀助教，2023年）</li>
-              <li>助教：《产业经济学》（本科生课程，获评优秀助教，2023年）</li>
-            </ul>
-            <p class="mt-2 text-slate-700"><strong>可授课程</strong>：微观经济学（初级、中级、高级）、博弈论、产业经济学、平台经济学、数字经济学、数理经济学。</p>
-          </div>
-        </div>
+      <div class="p-8 overflow-y-auto space-y-6 text-sm text-slate-800 font-serif">
+        <h1 class="text-2xl font-bold">宋 瑾 (Jin Song)</h1>
+        <p>应用经济学博士研究生 | 邮箱：jinsong@bjtu.edu.cn | 主页：https://jinsong-econ.github.io[cite: 7, 8]</p>
+        <hr>
+        <h2 class="font-bold text-base">教育经历</h2>
+        <p>北京交通大学应用经济学博士 (2021-2027) | 西北大学经济学学士 (2017-2021)[cite: 7, 8]</p>
+        <h2 class="font-bold text-base">代表性论文</h2>
+        <p>1. 宋瑾, 谭志斌, 曹志刚. 保研夏令营开营时间选择的理论分析. 《经济学（季刊）》, 2026[cite: 7, 8].</p>
       </div>
     </div>
   </div>
 
-  <!-- 核心数据与双语切换脚本 -->
   <script>
     let currentLang = 'zh';
-
-    const PROFILE_DATA = {
-      zh: {
-        name: '宋 瑾',
-        nameSub: 'Jin Song',
-        navSub: 'Jin Song · BJTU Economics',
-        role: '应用经济学 博士研究生',
-        dept: '北京交通大学 经济管理学院',
-        advisor: '导师：曹志刚 教授',
-        jmBadge: '预计毕业时间：2027年6月',
-        location: '北京市海淀区上园村3号（100044）',
-        fields: ['博弈论 (Game Theory)', '网络经济学 (Network Economics)', '平台与数字经济 (Platform & Digital Economy)'],
-        bio: [
-          '欢迎访问我的个人学术主页。我是<strong>北京交通大学经济管理学院</strong>应用经济学专业的博士研究生（2021年9月入学，预计2027年6月毕业），师从<strong>曹志刚教授</strong>。在此之前，我于2021年6月在<strong>西北大学经济管理学院</strong>经济学基地班获得经济学学士学位。',
-          '我的主要研究领域为<strong>微观经济理论、博弈论、网络经济学以及平台与数字经济</strong>。我的研究致力于运用博弈论与理论建模工具，探讨现实制度与数字平台中的核心微观机制——例如高等教育人才选拔中的策略性时间选择（保研夏令营抢跑机制）、双边与多边平台扩张过程中的组内负外部性治理，以及博弈论与经济模型中均衡存在性的理论边界。',
-          '相关研究成果已接收或发表于<strong>《经济学（季刊）》</strong>、<strong>《计量经济学报》</strong>与<strong>《运筹学学报（中英文）》</strong>等学术期刊。同时，我深度参与了教育部经济学领域“101计划”核心教材《数理经济学》的编写与经典博弈论教材译介工作。'
-        ],
-        education: [
-          {
-            degree: '应用经济学 博士研究生',
-            school: '北京交通大学 经济管理学院',
-            period: '2021年9月 — 至今（预计2027年6月毕业）',
-            detail: '导师：曹志刚 教授'
-          },
-          {
-            degree: '经济学学士（经济学基地班）',
-            school: '西北大学 经济管理学院',
-            period: '2017年9月 — 2021年6月',
-            detail: ''
-          }
-        ],
-        featuredPaper: {
-          badge: '代表性论文 · 《经济学（季刊）》待刊',
-          title: '《保研夏令营开营时间选择的理论分析》',
-          authors: '<strong>宋瑾</strong>、谭志斌<sup>*</sup>、曹志刚',
-          journal: '《经济学（季刊）》(China Economic Quarterly)，已接收，待刊',
-          doi: '10.13821/j.cnki.ceq.2026.05.12',
-          doiUrl: 'https://doi.org/10.13821/j.cnki.ceq.2026.05.12',
-          ranking: 'CSSCI来源期刊 · FMS管理科学高质量期刊T1类 · 北京交通大学A类期刊',
-          abstract: '本文立足于中国高校推免招生（保研夏令营）的制度背景，构建博弈论理论模型，深入剖析了不同层级高校在争夺优质生源过程中开营时间选择的策略性互动与“抢跑”机制，揭示了开营时间演化对学生匹配效率与社会福利的影响。',
-          bibtex: `@article{SongTanCao2026CEQ,
-  author  = {宋瑾 and 谭志斌 and 曹志刚},
-  title   = {保研夏令营开营时间选择的理论分析},
-  journal = {经济学(季刊)},
-  year    = {2026},
-  note    = {已接收，待刊},
-  doi     = {10.13821/j.cnki.ceq.2026.05.12}
-}`
-        },
-        publications: [
-          {
-            num: '01',
-            authors: '<strong>宋瑾</strong>、谭志斌<sup>*</sup>、曹志刚',
-            title: '《保研夏令营开营时间选择的理论分析》',
-            journal: '《经济学（季刊）》',
-            status: '已接收，待刊',
-            doi: '10.13821/j.cnki.ceq.2026.05.12',
-            doiUrl: 'https://doi.org/10.13821/j.cnki.ceq.2026.05.12',
-            tags: ['CSSCI来源期刊', 'FMS T1类期刊', '第一作者']
-          },
-          {
-            num: '02',
-            authors: '朱峰、曹志刚、<strong>宋瑾</strong><sup>*</sup>',
-            title: '《“扩张的代价”：组内负外部性视角下平台用户生态培育》',
-            journal: '《计量经济学报》',
-            status: '2026年第6卷第4期，第1000—1019页',
-            doi: '',
-            doiUrl: '',
-            tags: ['CSSCI扩展版 / CSCD', 'FMS T1类期刊', '通讯作者']
-          },
-          {
-            num: '03',
-            authors: '曹志刚、<strong>宋瑾</strong><sup>*</sup>、王思杰、朱峰',
-            title: '《博弈论和经济学中均衡不存在的解读》',
-            journal: '《运筹学学报（中英文）》',
-            status: '2024年第28卷第3期，第132—142页',
-            doi: '',
-            doiUrl: '',
-            tags: ['CSCD核心库来源期刊', 'FMS T2类期刊', '通讯作者']
-          }
-        ],
-        conferences: [
-          { name: '第十三届中国运筹学会博弈论分会学术年会', role: '分论坛报告', year: '2026年', award: '' },
-          { name: '第37届中国信息经济学会学术年会', role: '分论坛报告', year: '2025年', award: '' },
-          { name: '博弈论及其应用学术会议', role: '分论坛报告', year: '2024年', award: '🏆 获会议优秀论文奖（中国运筹学会博弈论分会）' },
-          { name: '第36届中国信息经济学会学术年会', role: '分论坛报告', year: '2024年', award: '' },
-          { name: '第六届天津大学博士生学术论坛经济学分论坛', role: '分论坛报告', year: '2024年', award: '' }
-        ],
-        textbooks: [
-          {
-            title: '《数理经济学》（教育部经济学领域“101计划”核心教材）',
-            role: '协助导师编写',
-            desc: '参与国家级经济学核心课程教材体系的章节撰写、模型推导与校对工作。'
-          },
-          {
-            title: '<em>Game Theory Basics</em> (Bernhard von Stengel 著, 2022)',
-            role: '协助导师翻译',
-            desc: '伦敦政治经济学院（LSE）经典博弈论教材中文译介。'
-          }
-        ],
-        service: '担任 <strong>《系统科学与数学》</strong> 期刊匿名审稿人（Referee）。',
-        honors: [
-          '2024年：博弈论及其应用学术会议“会议优秀论文奖”（授奖单位：中国运筹学会博弈论分会）',
-          '2023年：北京交通大学本科生课程《中级微观经济学》优秀助教',
-          '2023年：北京交通大学本科生课程《产业经济学》优秀助教'
-        ],
-        teaching: [
-          { course: '《中级微观经济学》（本科生课程）', role: '助教（获评优秀助教）', year: '2023年' },
-          { course: '《产业经济学》（本科生课程）', role: '助教（获评优秀助教）', year: '2023年' }
-        ],
-        canTeach: ['微观经济学（初级、中级、高级）', '博弈论', '产业经济学', '平台经济学', '数字经济学', '数理经济学']
-      },
-      en: {
-        name: 'Jin Song (宋瑾)',
-        nameSub: 'Ph.D. Candidate in Applied Economics',
-        navSub: 'Jin Song · BJTU Economics',
-        role: 'Ph.D. Candidate in Applied Economics',
-        dept: 'School of Economics and Management, Beijing Jiaotong University',
-        advisor: 'Advisor: Prof. Zhigang Cao (曹志刚)',
-        jmBadge: 'Expected Graduation: June 2027',
-        location: 'No. 3 Shangyuancun, Haidian District, Beijing 100044, China',
-        fields: ['Game Theory', 'Network Economics', 'Platform & Digital Economy'],
-        bio: [
-          'Welcome! I am a Ph.D. candidate in Applied Economics at the <strong>School of Economics and Management, Beijing Jiaotong University (BJTU)</strong>, where I am fortunate to be advised by <strong>Prof. Zhigang Cao</strong>. Prior to joining BJTU in September 2021, I received my B.A. in Economics (National Base Class) from <strong>Northwest University</strong> in June 2021. I expect to graduate in June 2027.',
-          'My primary research interests lie in <strong>Microeconomic Theory, Game Theory, Network Economics, and Platform & Digital Economy</strong>. I use game-theoretic modeling to study strategic interactions in real-world institutions and digital platforms—including strategic timing and unraveling in college/graduate admissions, user ecosystem cultivation under within-group negative externalities, and the theoretical foundations of equilibrium non-existence.',
-          'My research has been accepted or published in leading Chinese academic journals including <em><strong>China Economic Quarterly</strong></em> (《经济学（季刊）》), <em><strong>Journal of Quantitative Economics</strong></em> (《计量经济学报》), and <em><strong>Operations Research Transactions</strong></em> (《运筹学学报》).'
-        ],
-        education: [
-          {
-            degree: 'Ph.D. Candidate in Applied Economics',
-            school: 'School of Economics and Management, Beijing Jiaotong University',
-            period: 'Sep 2021 — Present (Expected Jun 2027)',
-            detail: 'Advisor: Prof. Zhigang Cao'
-          },
-          {
-            degree: 'B.A. in Economics (National Economics Base Class)',
-            school: 'School of Economics and Management, Northwest University',
-            period: 'Sep 2017 — Jun 2021',
-            detail: ''
-          }
-        ],
-        featuredPaper: {
-          badge: 'Representative Paper · Forthcoming at CEQ',
-          title: 'A Theoretical Analysis of the Timing of Postgraduate Recommendation Summer Camps (《保研夏令营开营时间选择的理论分析》)',
-          authors: '<strong>Jin Song</strong>, Zhibin Tan<sup>*</sup>, and Zhigang Cao',
-          journal: '<em>China Economic Quarterly</em> (《经济学（季刊）》), Accepted & Forthcoming',
-          doi: '10.13821/j.cnki.ceq.2026.05.12',
-          doiUrl: 'https://doi.org/10.13821/j.cnki.ceq.2026.05.12',
-          ranking: 'CSSCI · FMS Tier-1 Journal · BJTU Class-A Journal',
-          abstract: 'Motivated by the institutional setting of postgraduate recommendation summer camps across Chinese universities, this paper develops a game-theoretic model to analyze universities\' strategic timing choices and unraveling incentives when competing for top students, characterizing the resulting equilibrium timing and welfare implications.',
-          bibtex: `@article{SongTanCao2026CEQ,
-  author  = {Song, Jin and Tan, Zhibin and Cao, Zhigang},
-  title   = {A Theoretical Analysis of the Timing of Postgraduate Recommendation Summer Camps},
-  journal = {China Economic Quarterly},
-  year    = {2026},
-  note    = {Forthcoming},
-  doi     = {10.13821/j.cnki.ceq.2026.05.12}
-}`
-        },
-        publications: [
-          {
-            num: '01',
-            authors: '<strong>Jin Song</strong>, Zhibin Tan<sup>*</sup>, and Zhigang Cao',
-            title: 'A Theoretical Analysis of the Timing of Postgraduate Recommendation Summer Camps (《保研夏令营开营时间选择的理论分析》)',
-            journal: 'China Economic Quarterly (《经济学（季刊）》)',
-            status: 'Accepted, Forthcoming',
-            doi: '10.13821/j.cnki.ceq.2026.05.12',
-            doiUrl: 'https://doi.org/10.13821/j.cnki.ceq.2026.05.12',
-            tags: ['CSSCI', 'FMS Tier-1', 'First Author']
-          },
-          {
-            num: '02',
-            authors: 'Feng Zhu, Zhigang Cao, and <strong>Jin Song</strong><sup>*</sup>',
-            title: '"The Price of Expansion": User Ecosystem Cultivation on Platforms under Within-Group Negative Externalities (《“扩张的代价”：组内负外部性视角下平台用户生态培育》)',
-            journal: 'Journal of Quantitative Economics (《计量经济学报》)',
-            status: '2026, Vol. 6, No. 4, pp. 1000–1019',
-            doi: '',
-            doiUrl: '',
-            tags: ['CSSCI-Ext / CSCD', 'FMS Tier-1', 'Corresponding Author']
-          },
-          {
-            num: '03',
-            authors: 'Zhigang Cao, <strong>Jin Song</strong><sup>*</sup>, Sijie Wang, and Feng Zhu',
-            title: 'An Interpretation of Equilibrium Non-Existence in Game Theory and Economics (《博弈论和经济学中均衡不存在的解读》)',
-            journal: 'Operations Research Transactions (《运筹学学报（中英文）》)',
-            status: '2024, Vol. 28, No. 3, pp. 132–142',
-            doi: '',
-            doiUrl: '',
-            tags: ['CSCD Core', 'FMS Tier-2', 'Corresponding Author']
-          }
-        ],
-        conferences: [
-          { name: '13th Annual Conference of the Game Theory Society of ORSC', role: 'Parallel Session Presentation', year: '2026', award: '' },
-          { name: '37th Annual Conference of China Information Economics Society', role: 'Parallel Session Presentation', year: '2025', award: '' },
-          { name: 'Academic Conference on Game Theory and Its Applications', role: 'Parallel Session Presentation', year: '2024', award: '🏆 Best Paper Award (Game Theory Society of ORSC)' },
-          { name: '36th Annual Conference of China Information Economics Society', role: 'Parallel Session Presentation', year: '2024', award: '' },
-          { name: '6th Tianjin University Ph.D. Academic Forum in Economics', role: 'Parallel Session Presentation', year: '2024', award: '' }
-        ],
-        textbooks: [
-          {
-            title: '<em>Mathematical Economics</em> (《数理经济学》, Ministry of Education "101 Project" Core Textbook)',
-            role: 'Editorial Assistant to Prof. Zhigang Cao',
-            desc: 'Contributed to drafting, mathematical derivations, and proofreading for the national core economics curriculum.'
-          },
-          {
-            title: 'Chinese Translation of <em>Game Theory Basics</em> (by Bernhard von Stengel, 2022)',
-            role: 'Translation Assistant to Prof. Zhigang Cao',
-            desc: 'Assisted in translating the classic game theory textbook into Chinese.'
-          }
-        ],
-        service: 'Anonymous Referee for <em><strong>Journal of Systems Science and Mathematical Sciences</strong></em> (《系统科学与数学》).',
-        honors: [
-          '2024: Best Paper Award, Academic Conference on Game Theory and Its Applications (ORSC)',
-          '2023: Outstanding Teaching Assistant Award (Intermediate Microeconomics), BJTU',
-          '2023: Outstanding Teaching Assistant Award (Industrial Economics), BJTU'
-        ],
-        teaching: [
-          { course: 'Intermediate Microeconomics (Undergraduate)', role: 'Teaching Assistant (Outstanding TA Award)', year: '2023' },
-          { course: 'Industrial Economics (Undergraduate)', role: 'Teaching Assistant (Outstanding TA Award)', year: '2023' }
-        ],
-        canTeach: ['Microeconomics (Intro / Intermediate / Advanced)', 'Game Theory', 'Industrial Organization', 'Platform Economics', 'Digital Economy', 'Mathematical Economics']
-      }
-    };
-
-    const I18N_LABELS = {
-      zh: {
-        navAbout: '关于我',
-        navPubs: '发表论文',
-        navConf: '学术会议',
-        navProj: '教材与服务',
-        navTeaching: '教学经历',
-        navVisitors: '访客统计',
-        navCV: '学术简历 (CV)',
-        btnCV: '查看简历',
-        sidebarFields: '研究领域 (Research Fields)',
-        labelEmail: '电子邮箱 (Email)',
-        labelAddress: '通信地址 (Location)',
-        sideBtnPreviewCV: '在线简历 (CV)',
-        sideBtnDownloadTex: 'LaTeX 源码',
-        sidebarVisitorTitle: '主页访问统计',
-        sidebarVisitorMore: '详情 →',
-        labelPV: '总浏览量 (PV)',
-        labelUV: '独立访客 (UV)',
-        secAbout: '个人简介与教育背景',
-        subEducation: '教育经历 (Education)',
-        secFeatured: '代表性论文聚焦',
-        secPubs: '已发表及已接收论文',
-        corrNote: '注：* 表示通讯作者',
-        secConf: '学术会议分论坛报告',
-        secProj: '教材建设与学术服务',
-        subTextbooks: '科研项目与教材建设',
-        subService: '学术服务 (Referee Service)',
-        subHonors: '学术荣誉与奖项',
-        secTeaching: '教学经历与可授课程',
-        subTA: '助教经历 (Teaching Assistant)',
-        subCanTeach: '可授课程 (Teaching Interests)',
-        secVisitors: '访客统计与访问热度',
-        visitorLiveTag: '实时计数已启用',
-        cardPVTitle: '主页总访问量 (Pageviews)',
-        cardPVSub: '次浏览',
-        cardUVTitle: '独立访客数 (Visitors)',
-        cardUVSub: '位学者/访客',
-        cardLocalTitle: '您的访问次数 (Your Visits)',
-        cardLocalSub: '当前设备累计',
-        visitorNote: '统计说明：已内置 Busuanzi 静态网页计数器，自动统计全球真实访客数据。',
-        footerVisitors: '累计访问：',
-        footerTimes: '次',
-        footerUpdated: '更新日期：2026年10月',
-        footerViewCV: '在线预览学术简历'
-      },
-      en: {
-        navAbout: 'About',
-        navPubs: 'Publications',
-        navConf: 'Conferences',
-        navProj: 'Textbooks & Service',
-        navTeaching: 'Teaching',
-        navVisitors: 'Visitors',
-        navCV: 'CV',
-        btnCV: 'View CV',
-        sidebarFields: 'Research Fields',
-        labelEmail: 'Email',
-        labelAddress: 'Location',
-        sideBtnPreviewCV: 'Preview CV',
-        sideBtnDownloadTex: 'LaTeX Source',
-        sidebarVisitorTitle: 'Visitor Traffic',
-        sidebarVisitorMore: 'Details →',
-        labelPV: 'Pageviews (PV)',
-        labelUV: 'Unique Visitors',
-        secAbout: 'Biography & Education',
-        subEducation: 'Education',
-        secFeatured: 'Representative Paper',
-        secPubs: 'Publications & Forthcoming Papers',
-        corrNote: 'Note: * denotes corresponding author',
-        secConf: 'Conference Presentations',
-        secProj: 'Textbooks & Academic Service',
-        subTextbooks: 'Textbooks & Translations',
-        subService: 'Referee Service',
-        subHonors: 'Honors & Awards',
-        secTeaching: 'Teaching Experience & Interests',
-        subTA: 'Teaching Assistant',
-        subCanTeach: 'Teaching Interests',
-        secVisitors: 'Visitor Analytics & Footprint',
-        visitorLiveTag: 'Live Counter Active',
-        cardPVTitle: 'Total Pageviews (PV)',
-        cardPVSub: 'views',
-        cardUVTitle: 'Unique Visitors (UV)',
-        cardUVSub: 'visitors',
-        cardLocalTitle: 'Your Visits',
-        cardLocalSub: 'from this device',
-        visitorNote: 'Powered by Busuanzi live counter for real-time global traffic analytics.',
-        footerVisitors: 'Total Views:',
-        footerTimes: '',
-        footerUpdated: 'Last Updated: Oct 2026',
-        footerViewCV: 'Preview Academic CV'
-      }
-    };
-
-    function renderPage() {
-      const data = PROFILE_DATA[currentLang];
-      const labels = I18N_LABELS[currentLang];
-
-      document.getElementById('lang-label').textContent = currentLang === 'zh' ? 'English' : '中文';
-
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (labels[key] !== undefined) {
-          el.textContent = labels[key];
-        }
-      });
-
-      document.getElementById('nav-name').textContent = data.name;
-      document.getElementById('nav-sub').textContent = data.navSub;
-      document.getElementById('profile-name').textContent = data.name;
-      document.getElementById('profile-name-sub').textContent = data.nameSub;
-      document.getElementById('profile-role').textContent = data.role;
-      document.getElementById('profile-dept').textContent = data.dept;
-      document.getElementById('profile-advisor').textContent = data.advisor;
-      document.getElementById('jm-badge-text').textContent = data.jmBadge;
-      document.getElementById('contact-location').textContent = data.location;
-
-      document.getElementById('research-interests').innerHTML = data.fields.map(f => `
-        <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200/60">
-          ${f}
-        </span>
-      `).join('');
-
-      document.getElementById('bio-content').innerHTML = data.bio.map(p => `<p>${p}</p>`).join('');
-
-      document.getElementById('education-list').innerHTML = data.education.map(ed => `
-        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-          <div>
-            <div class="font-semibold text-slate-900 text-sm">${ed.school}</div>
-            <div class="text-xs text-slate-600 mt-0.5">${ed.degree} ${ed.detail ? `· <span class="text-navy-700 font-medium">${ed.detail}</span>` : ''}</div>
-          </div>
-          <span class="font-mono text-xs text-slate-500 shrink-0">${ed.period}</span>
-        </div>
-      `).join('');
-
-      const fp = data.featuredPaper;
-      document.getElementById('jmp-container').innerHTML = `
-        <div class="jmp-gradient rounded-2xl border border-slate-200/90 p-6 shadow-sm paper-card">
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
-            <span class="text-xs font-semibold text-navy-700 uppercase tracking-wider">${fp.badge}</span>
-            <span class="text-xs font-mono text-slate-500">${fp.ranking}</span>
-          </div>
-          <h3 class="academic-heading text-xl font-bold text-slate-900 leading-snug">
-            ${fp.title}
-          </h3>
-          <p class="text-sm text-slate-700 mt-2">${fp.authors}</p>
-          <p class="text-sm font-medium text-navy-700 mt-1">${fp.journal}</p>
-          <p class="text-xs text-slate-600 leading-relaxed mt-3.5 bg-white/80 p-3.5 rounded-xl border border-slate-200/60">
-            ${fp.abstract}
-          </p>
-          <div class="mt-4 flex flex-wrap items-center gap-2.5">
-            <a href="${fp.doiUrl}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-navy-700 text-white hover:bg-navy-800 transition-colors">
-              <span>DOI: ${fp.doi}</span>
-            </a>
-            <button onclick="copyBibtex()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
-              <span id="bibtex-btn-text">${currentLang === 'zh' ? '复制 BibTeX 引用' : 'Copy BibTeX'}</span>
-            </button>
-          </div>
-        </div>
-      `;
-
-      document.getElementById('publications-list').innerHTML = data.publications.map(pub => `
-        <article class="bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm paper-card">
-          <div class="flex items-start justify-between gap-4">
-            <div class="space-y-1.5">
-              <div class="flex flex-wrap items-center gap-1.5">
-                <span class="font-mono text-xs font-semibold text-navy-700 bg-navy-50 px-2 py-0.5 rounded">${pub.num}</span>
-                ${pub.tags.map(t => `<span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-100 text-slate-600">${t}</span>`).join('')}
-              </div>
-              <h3 class="font-serif font-bold text-base sm:text-lg text-slate-900 leading-snug pt-0.5">
-                ${pub.title}
-              </h3>
-              <p class="text-sm text-slate-700">${pub.authors}</p>
-              <p class="text-sm text-slate-600">
-                <strong class="text-navy-800">${pub.journal}</strong>，${pub.status}
-                ${pub.doi ? ` · <a href="${pub.doiUrl}" target="_blank" class="text-navy-700 underline font-mono text-xs">DOI: ${pub.doi}</a>` : ''}
-              </p>
-            </div>
-          </div>
-        </article>
-      `).join('');
-
-      document.getElementById('conference-list').innerHTML = data.conferences.map(c => `
-        <div class="p-4 sm:px-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-slate-50/60 transition-colors">
-          <div>
-            <div class="text-sm font-medium text-slate-900">${c.name}</div>
-            <div class="text-xs text-slate-500 mt-0.5 flex flex-wrap items-center gap-2">
-              <span>${c.role}</span>
-              ${c.award ? `<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-50 text-amber-900 border border-amber-200">${c.award}</span>` : ''}
-            </div>
-          </div>
-          <span class="font-mono text-xs text-slate-500 shrink-0">${c.year}</span>
-        </div>
-      `).join('');
-
-      document.getElementById('textbooks-list').innerHTML = data.textbooks.map(tb => `
-        <li class="border-l-2 border-navy-700 pl-3 py-0.5">
-          <div class="font-semibold text-slate-900 text-sm">${tb.title}</div>
-          <div class="text-xs text-navy-700 font-medium mt-0.5">${tb.role}</div>
-          <div class="text-xs text-slate-500 mt-1 leading-relaxed">${tb.desc}</div>
-        </li>
-      `).join('');
-
-      document.getElementById('service-content').innerHTML = data.service;
-      document.getElementById('honors-list').innerHTML = data.honors.map(h => `
-        <li class="flex items-start gap-2">
-          <span class="text-amber-600 mt-0.5">•</span>
-          <span>${h}</span>
-        </li>
-      `).join('');
-
-      document.getElementById('teaching-list').innerHTML = data.teaching.map(t => `
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 bg-slate-50/80 px-4 py-2.5 rounded-lg border border-slate-200/60">
-          <div>
-            <span class="font-semibold text-sm text-slate-900">${t.course}</span>
-            <span class="text-xs text-navy-700 font-medium ml-2">${t.role}</span>
-          </div>
-          <span class="font-mono text-xs text-slate-500">${t.year}</span>
-        </div>
-      `).join('');
-
-      document.getElementById('can-teach-list').innerHTML = data.canTeach.map(c => `
-        <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200/70">
-          ${c}
-        </span>
-      `).join('');
-    }
-
     function toggleLanguage() {
       currentLang = currentLang === 'zh' ? 'en' : 'zh';
-      renderPage();
+      document.getElementById('lang-label').textContent = currentLang === 'zh' ? 'English' : '中文';
     }
-
     function handleAvatarError(img) {
       img.style.display = 'none';
-      const fb = document.getElementById('avatar-fallback');
-      fb.classList.remove('hidden');
-      fb.classList.add('flex');
+      document.getElementById('avatar-fallback').classList.remove('hidden');
+      document.getElementById('avatar-fallback').classList.add('flex');
     }
-
-    function previewLocalAvatar(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e) {
+    function previewLocalAvatar(e) {
+      const f = e.target.files[0];
+      if (!f) return;
+      const r = new FileReader();
+      r.onload = function(evt) {
         const img = document.getElementById('profile-avatar');
-        img.src = e.target.result;
+        img.src = evt.target.result;
         img.style.display = 'block';
-        const fb = document.getElementById('avatar-fallback');
-        fb.classList.add('hidden');
-        fb.classList.remove('flex');
+        document.getElementById('avatar-fallback').classList.add('hidden');
       };
-      reader.readAsDataURL(file);
+      r.readAsDataURL(f);
     }
-
-    function copyBibtex() {
-      const bib = PROFILE_DATA[currentLang].featuredPaper.bibtex;
-      navigator.clipboard.writeText(bib).then(() => {
-        const btn = document.getElementById('bibtex-btn-text');
-        const old = btn.textContent;
-        btn.textContent = currentLang === 'zh' ? '✓ 已复制 BibTeX' : '✓ Copied!';
-        setTimeout(() => { btn.textContent = old; }, 2000);
-      });
-    }
-
-    function openCVModal() {
-      document.getElementById('cv-modal').classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeCVModal() {
-      document.getElementById('cv-modal').classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-
-    // 访客统计：单一清晰数值展示，彻底杜绝上下两个数字重叠
-    function initVisitorAnalytics() {
-      const storageKey = 'jinsong_econ_local_visits_v2';
-      let localVisits = parseInt(localStorage.getItem(storageKey) || '0', 10) + 1;
-      localStorage.setItem(storageKey, localVisits.toString());
-
-      const basePV = 128 + localVisits;
-      const baseUV = 45 + Math.min(localVisits, 5);
-
-      updateVisitorDOM(basePV, baseUV, localVisits);
-
-      let checks = 0;
-      const timer = setInterval(() => {
-        checks++;
-        const bszPV = document.getElementById('busuanzi_value_site_pv');
-        const bszUV = document.getElementById('busuanzi_value_site_uv');
-        if (bszPV && bszPV.textContent && parseInt(bszPV.textContent, 10) > 0) {
-          const realPV = parseInt(bszPV.textContent, 10);
-          const realUV = (bszUV && parseInt(bszUV.textContent, 10) > 0) ? parseInt(bszUV.textContent, 10) : baseUV;
-          updateVisitorDOM(realPV, realUV, localVisits);
-          clearInterval(timer);
-        }
-        if (checks > 12) clearInterval(timer);
-      }, 600);
-    }
-
-    function updateVisitorDOM(pv, uv, local) {
-      document.getElementById('sidebar-pv-num').textContent = pv.toLocaleString();
-      document.getElementById('sidebar-uv-num').textContent = uv.toLocaleString();
-      document.getElementById('main-pv-num').textContent = pv.toLocaleString();
-      document.getElementById('main-uv-num').textContent = uv.toLocaleString();
-      document.getElementById('local-visit-num').textContent = local.toLocaleString();
-      document.getElementById('footer-pv-num').textContent = pv.toLocaleString();
-    }
-
-    // 下载不含手机号码的纯净定稿版 LaTeX 简历源码
-    function downloadLatexCV() {
-      const texContent = `\\documentclass[
-  UTF8,
-  a4paper,
-  11pt,
-  fontset=fandol
-]{ctexart}
-
-\\usepackage[
-  left=2.2cm,
-  right=2.2cm,
-  top=1.8cm,
-  bottom=1.8cm
-]{geometry}
-
-\\usepackage{array}
-\\usepackage{tabularx}
-\\usepackage{enumitem}
-\\usepackage{setspace}
-\\usepackage{needspace}
-\\usepackage{fancyhdr}
-\\usepackage{hyperref}
-
-\\hypersetup{
-  hidelinks,
-  pdftitle={宋瑾 - 学术简历 (北京交通大学)},
-  pdfauthor={宋瑾}
-}
-
-\\setstretch{1.15}
-\\setlength{\\parindent}{0pt}
-\\setlength{\\parskip}{0pt}
-\\setlength{\\emergencystretch}{2em}
-
-\\pagestyle{fancy}
-\\fancyhf{}
-\\fancyfoot[C]{\\small\\thepage}
-\\renewcommand{\\headrulewidth}{0pt}
-\\renewcommand{\\footrulewidth}{0pt}
-\\setlength{\\footskip}{22pt}
-
-\\setlist[itemize]{
-  leftmargin=1.4em,
-  itemsep=0.3em,
-  topsep=0.2em,
-  parsep=0pt,
-  partopsep=0pt
-}
-
-\\newlist{publications}{itemize}{1}
-\\setlist[publications]{
-  label={},
-  leftmargin=1.5em,
-  itemindent=-1.5em,
-  itemsep=0.65em,
-  topsep=0.25em,
-  parsep=0pt,
-  partopsep=0pt
-}
-
-\\newcommand{\\cvsection}[1]{%
-  \\par\\addvspace{1.0em}%
-  \\Needspace{4\\baselineskip}%
-  {\\large\\bfseries #1\\par}%
-  \\vspace{0.22em}%
-  \\hrule height 0.5pt
-  \\vspace{0.45em}%
-}
-
-\\newcommand{\\datedentry}[2]{%
-  \\begin{tabularx}{\\textwidth}{
-    @{}>{\\raggedright\\arraybackslash}X
-    @{\\hspace{1em}}
-    r@{}
-  }
-    #1 & #2
-  \\end{tabularx}\\par
-}
-
-\\newcommand{\\entrydetail}[1]{%
-  \\nopagebreak
-  \\vspace{0.15em}%
-  {\\small\\hspace*{1.5em}#1\\par}%
-}
-
-\\newcommand{\\pubnote}[1]{%
-  \\nopagebreak\\\\*[0.15em]%
-  {\\small #1}%
-}
-
-\\newcommand{\\CVEmail}{jinsong@bjtu.edu.cn}
-\\newcommand{\\CVWebsite}{https://jinsong-econ.github.io}
-
-\\begin{document}
-
-{\\fontsize{24}{29}\\selectfont\\bfseries 宋 瑾}
-
-\\vspace{0.55em}
-
-\\begin{tabularx}{\\textwidth}{
-  @{}>{\\raggedright\\arraybackslash}X
-  @{\\hspace{1em}}
-  >{\\raggedleft\\arraybackslash}p{7.2cm}@{}
-}
-北京交通大学经济管理学院，应用经济学博士研究生 & 邮箱：\\href{mailto:\\CVEmail}{\\texttt{\\CVEmail}} \\\\[0.15em]
-通信地址：北京市海淀区上园村3号（100044） & 个人主页：\\href{\\CVWebsite}{\\texttt{jinsong-econ.github.io}} \\\\[0.15em]
-研究领域：博弈论、网络经济学、平台与数字经济 & 预计毕业时间：2027年6月
-\\end{tabularx}
-
-\\cvsection{教育经历}
-
-\\datedentry
-  {\\textbf{北京交通大学}，经济管理学院，应用经济学，博士研究生}
-  {2021年9月—至今}
-\\entrydetail{导师：曹志刚 教授}
-
-\\vspace{0.45em}
-
-\\datedentry
-  {\\textbf{西北大学}，经济管理学院，经济学基地班，经济学学士}
-  {2017年9月—2021年6月}
-
-\\cvsection{已发表及已接收论文}
-
-\\begin{publications}
-
-  \\item
-  \\textbf{宋瑾}、谭志斌\\textsuperscript{*}、曹志刚，
-  《保研夏令营开营时间选择的理论分析》，
-  \\textbf{《经济学（季刊）》}，已接收，待刊。
-  \\href{https://doi.org/10.13821/j.cnki.ceq.2026.05.12}{DOI: 10.13821/j.cnki.ceq.2026.05.12}。
-  \\pubnote{（CSSCI来源期刊，FMS管理科学高质量期刊T1类，北京交通大学A类期刊）}
-
-  \\item
-  朱峰、曹志刚、\\textbf{宋瑾}\\textsuperscript{*}，
-  《“扩张的代价”：组内负外部性视角下平台用户生态培育》，
-  \\textbf{《计量经济学报》}，2026年第6卷第4期，第1000—1019页。
-  \\pubnote{（CSSCI扩展版来源期刊、CSCD来源期刊，FMS管理科学高质量期刊T1类，北京交通大学A类期刊）}
-
-  \\item
-  曹志刚、\\textbf{宋瑾}\\textsuperscript{*}、王思杰、朱峰，
-  《博弈论和经济学中均衡不存在的解读》，
-  \\textbf{《运筹学学报（中英文）》}，2024年第28卷第3期，第132—142页。
-  \\pubnote{（CSCD核心库来源期刊，FMS管理科学高质量期刊T2类，北京交通大学B类期刊）}
-
-\\end{publications}
-
-\\vspace{0.15em}
-{\\footnotesize 注：\\textsuperscript{*} 表示通讯作者。}
-
-\\cvsection{学术会议分论坛报告}
-
-\\datedentry
-  {第十三届中国运筹学会博弈论分会学术年会}
-  {2026年}
-
-\\vspace{0.3em}
-
-\\datedentry
-  {第37届中国信息经济学会学术年会}
-  {2025年}
-
-\\vspace{0.3em}
-
-\\datedentry
-  {博弈论及其应用学术会议（获会议优秀论文奖，授奖单位：中国运筹学会博弈论分会）}
-  {2024年}
-
-\\vspace{0.3em}
-
-\\datedentry
-  {第36届中国信息经济学会学术年会}
-  {2024年}
-
-\\vspace{0.3em}
-
-\\datedentry
-  {第六届天津大学博士生学术论坛经济学分论坛}
-  {2024年}
-
-\\cvsection{学术服务}
-
-期刊匿名审稿人：《系统科学与数学》
-
-\\cvsection{科研项目与教材建设}
-
-\\begin{publications}
-  \\item 协助导师编写《数理经济学》（教育部经济学领域“101计划”核心教材）。
-  \\item 协助导师翻译 \\textit{Game Theory Basics}（Bernhard von Stengel 著，2022）。
-\\end{publications}
-
-\\cvsection{教学经历与可授课程}
-
-\\datedentry
-  {助教：《中级微观经济学》（本科生课程，获评优秀助教）}
-  {2023年}
-
-\\vspace{0.3em}
-
-\\datedentry
-  {助教：《产业经济学》（本科生课程，获评优秀助教）}
-  {2023年}
-
-\\vspace{0.45em}
-
-可授课程：微观经济学（初级、中级、高级）、博弈论、产业经济学、平台经济学、数字经济学、数理经济学。
-
-\\vfill
-\\begin{flushright}
-  \\footnotesize 更新日期：2026年10月
-\\end{flushright}
-
-\\end{document}`;
-
-      const blob = new Blob([texContent], { type: 'text/plain;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = '宋瑾_北京交通大学_学术简历_CV.tex';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      renderPage();
-      initVisitorAnalytics();
+    function openCVModal() { document.getElementById('cv-modal').classList.remove('hidden'); }
+    function closeCVModal() { document.getElementById('cv-modal').classList.add('hidden'); }
+    
+    // 访客统计模拟
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const pv = document.getElementById('busuanzi_value_site_pv');
+        const num = (pv && pv.textContent) ? pv.textContent : '128';
+        document.getElementById('footer-pv-num').textContent = num;
+      }, 1000);
     });
+
+    function downloadLatexCV() {
+      alert("请直接在本地通过 LaTeX 编译您更新后的 .tex 简历文件！");
+    }
   </script>
 </body>
 </html>
